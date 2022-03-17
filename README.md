@@ -1,5 +1,5 @@
 ## Documentation
-The documentation for the Now UI Kit React is hosted at our [website](https://demos.creative-tim.com/now-ui-kit-react/#/documentation/introduction?ref=nukr-github-readme).
+The documentation for the Shopsy is hosted at our [website](https://).
 
 
 ## File Structure
