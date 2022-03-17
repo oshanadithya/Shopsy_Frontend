@@ -58,10 +58,10 @@ function IndexNavbar() {
               target="_blank"
               id="navbar-brand"
             >
-              Now UI Kit React
+              Shopsy
             </NavbarBrand>
             <UncontrolledTooltip target="#navbar-brand">
-              Designed by Invision. Coded by Creative Tim
+              Coded by Tech Phantoms
             </UncontrolledTooltip>
             <button
               className="navbar-toggler navbar-toggler"
@@ -93,10 +93,12 @@ function IndexNavbar() {
                       .scrollIntoView();
                   }}
                 >
-                  <i className="now-ui-icons arrows-1_cloud-download-93"></i>
-                  <p>Download</p>
+                  <i className=""></i>
+                  <p>Shop</p>
                 </NavLink>
               </NavItem>
+
+
               <UncontrolledDropdown nav>
                 <DropdownToggle
                   caret
@@ -105,38 +107,87 @@ function IndexNavbar() {
                   nav
                   onClick={(e) => e.preventDefault()}
                 >
-                  <i className="now-ui-icons design_app mr-1"></i>
-                  <p>Components</p>
+                  <i className=""></i>
+                  <p>Companies</p>
                 </DropdownToggle>
                 <DropdownMenu>
                   <DropdownItem to="/index" tag={Link}>
-                    <i className="now-ui-icons business_chart-pie-36 mr-1"></i>
-                    All components
+                    <i className=""></i>
+                    Malibun
                   </DropdownItem>
                   <DropdownItem
-                    href="https://demos.creative-tim.com/now-ui-kit-react/#/documentation/introduction?ref=nukr-index-navbar"
+                    href="https://"
                     target="_blank"
                   >
-                    <i className="now-ui-icons design_bullet-list-67 mr-1"></i>
-                    Documentation
+                    <i className=""></i>
+                    Softlogic
+                  </DropdownItem>
+                  <DropdownItem
+                    href="https://"
+                    target="_blank"
+                  >
+                    <i className=""></i>
+                    Abans
+                  </DropdownItem>
+                  <DropdownItem
+                    href="https://"
+                    target="_blank"
+                  >
+                    <i className=""></i>
+                    Singer
+                  </DropdownItem>
+                  <DropdownItem
+                    href="https://"
+                    target="_blank"
+                  >
+                    <i className=""></i>
+                    CBL
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
-              <NavItem>
-                <Button
-                  className="nav-link btn-neutral"
-                  color="info"
-                  href="https://www.creative-tim.com/product/now-ui-kit-pro-react?ref=nukr-index-navbar"
-                  id="upgrade-to-pro"
-                  target="_blank"
+
+
+              <UncontrolledDropdown nav>
+                <DropdownToggle
+                  caret
+                  color="default"
+                  href="#pablo"
+                  nav
+                  onClick={(e) => e.preventDefault()}
                 >
-                  <i className="now-ui-icons arrows-1_share-66 mr-1"></i>
-                  <p>Upgrade to PRO</p>
-                </Button>
-                <UncontrolledTooltip target="#upgrade-to-pro">
-                  Cooming soon!
-                </UncontrolledTooltip>
-              </NavItem>
+                  <i className=""></i>
+                  <p>Products</p>
+                </DropdownToggle>
+                <DropdownMenu>
+                  <DropdownItem to="/index" tag={Link}>
+                    <i className=""></i>
+                    Electronic Devices
+                  </DropdownItem>
+                  <DropdownItem
+                    href="https://"
+                    target="_blank"
+                  >
+                    <i className=""></i>
+                    Pharmetical Items
+                  </DropdownItem>
+                  <DropdownItem
+                    href="https://"
+                    target="_blank"
+                  >
+                    <i className=""></i>
+                    Daily Essentials
+                  </DropdownItem>
+                  <DropdownItem
+                    href="https://"
+                    target="_blank"
+                  >
+                    <i className=""></i>
+                    Liquor
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+
+              
               <NavItem>
                 <NavLink
                   href="https://twitter.com/CreativeTim?ref=creativetim"
