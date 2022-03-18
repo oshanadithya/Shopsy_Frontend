@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from 'react-toastify';
 
+import {Button} from "reactstrap";
+
 function ContactUS () {
     return (
         <>
@@ -55,10 +57,9 @@ function ContactUS () {
                             ></textarea>
                         </div>
                         </div>
-                        <button className='submit-btn' type='submit'>
-                        Submit
-                        </button>
-                        
+                        <Button className="btn-round" color="info" type="submit" outline type="button">
+                            Send
+                        </Button>
                     </form>
                     </div>
                 </div>
