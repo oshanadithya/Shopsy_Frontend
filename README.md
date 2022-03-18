@@ -48,6 +48,7 @@ Shopsy
     │       └── IndexNavbar.js
     ├── index.js
     └── views
+    |   ├──ContactUs.js
     |   ├── Index.js
     |   ├── NucleoIcons.js
     |   ├── examples
@@ -73,8 +74,6 @@ Shopsy
 ```
 
 ## Licensing
-
-- Copyright 2021 Creative Tim (https://www.creative-tim.com/?ref=nukr-github-readme)
 
 [CHANGELOG]: ./CHANGELOG.md
 [LICENSE]: ./LICENSE.md
