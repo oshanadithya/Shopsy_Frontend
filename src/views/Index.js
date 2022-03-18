@@ -28,6 +28,7 @@ import Download from "./index-sections/Download.js";
 // dev implemented
 import { ContactUS } from "./ContactUs.js";
 
+ 
 function Index() {
   React.useEffect(() => {
     document.body.classList.add("index-page");
@@ -46,6 +47,8 @@ function Index() {
       <div className="wrapper">
         <IndexHeader />
         <div className="main">
+          <Images />
+          
           <ContactUS />
         </div>
         <DarkFooter />

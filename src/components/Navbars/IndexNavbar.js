@@ -54,7 +54,7 @@ function IndexNavbar() {
         <Container>
           <div className="navbar-translate">
             <NavbarBrand
-              href="https://demos.creative-tim.com/now-ui-kit-react/#/index?ref=nukr-index-navbar"
+              href="src/Index.js"
               target="_blank"
               id="navbar-brand"
             >
