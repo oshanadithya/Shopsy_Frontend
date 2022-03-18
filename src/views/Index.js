@@ -25,6 +25,9 @@ import SignUp from "./index-sections/SignUp.js";
 import Examples from "./index-sections/Examples.js";
 import Download from "./index-sections/Download.js";
 
+// dev implemented
+import { ContactUS } from "./ContactUs.js";
+
 function Index() {
   React.useEffect(() => {
     document.body.classList.add("index-page");
@@ -43,7 +46,7 @@ function Index() {
       <div className="wrapper">
         <IndexHeader />
         <div className="main">
-          
+          <ContactUS />
         </div>
         <DarkFooter />
       </div>
