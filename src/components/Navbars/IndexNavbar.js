@@ -98,6 +98,35 @@ function IndexNavbar() {
                 </NavLink>
               </NavItem>
 
+              <NavItem>
+                <NavLink
+                  href="#pablo"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document
+                      .getElementById("download-section")
+                      .scrollIntoView();
+                  }}
+                >
+                  <i className=""></i>
+                  <p>Contact Us</p>
+                </NavLink>
+              </NavItem>
+
+              <NavItem>
+                <NavLink
+                  href="#pablo"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document
+                      .getElementById("download-section")
+                      .scrollIntoView();
+                  }}
+                >
+                  <i className=""></i>
+                  <p>About Us</p>
+                </NavLink>
+              </NavItem>
 
               <UncontrolledDropdown nav>
                 <DropdownToggle
@@ -108,55 +137,7 @@ function IndexNavbar() {
                   onClick={(e) => e.preventDefault()}
                 >
                   <i className=""></i>
-                  <p>Companies</p>
-                </DropdownToggle>
-                <DropdownMenu>
-                  <DropdownItem to="/index" tag={Link}>
-                    <i className=""></i>
-                    Malibun
-                  </DropdownItem>
-                  <DropdownItem
-                    href="https://"
-                    target="_blank"
-                  >
-                    <i className=""></i>
-                    Softlogic
-                  </DropdownItem>
-                  <DropdownItem
-                    href="https://"
-                    target="_blank"
-                  >
-                    <i className=""></i>
-                    Abans
-                  </DropdownItem>
-                  <DropdownItem
-                    href="https://"
-                    target="_blank"
-                  >
-                    <i className=""></i>
-                    Singer
-                  </DropdownItem>
-                  <DropdownItem
-                    href="https://"
-                    target="_blank"
-                  >
-                    <i className=""></i>
-                    CBL
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
-
-
-              <UncontrolledDropdown nav>
-                <DropdownToggle
-                  caret
-                  color="default"
-                  href="#pablo"
-                  nav
-                  onClick={(e) => e.preventDefault()}
-                >
-                  <i className=""></i>
-                  <p>Products</p>
+                  <p>All Categories</p>
                 </DropdownToggle>
                 <DropdownMenu>
                   <DropdownItem to="/index" tag={Link}>

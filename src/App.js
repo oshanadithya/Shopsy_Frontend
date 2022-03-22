@@ -47,10 +47,10 @@ function App() {
                 <Redirect to="/index" />
                 <Redirect from="/" to="/index" />
 
-                //exact
-                <Route path="" exact>
-                    
-                </Route>
+                
+                <Route path="/Cart" exact>
+                <Redirect from="/" to="/index" />
+                </Route> 
             </Switch>
         </BrowserRouter>
     );

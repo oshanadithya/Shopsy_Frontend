@@ -28,7 +28,7 @@ import Download from "./index-sections/Download.js";
 // dev implemented
 import { ContactUS } from "./ContactUs.js";
 import { Cart } from "./Cart.js";
-
+import { Sellproduct } from "./SellProduct.js";
  
 function Index() {
   React.useEffect(() => {
