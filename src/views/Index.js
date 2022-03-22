@@ -27,6 +27,7 @@ import Download from "./index-sections/Download.js";
 
 // dev implemented
 import { ContactUS } from "./ContactUs.js";
+import { Cart } from "./Cart.js";
 
  
 function Index() {
@@ -48,7 +49,7 @@ function Index() {
         <IndexHeader />
         <div className="main">
           <Images />
-          
+
           <ContactUS />
         </div>
         <DarkFooter />
