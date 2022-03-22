@@ -19,26 +19,17 @@ import {
  
 function Sellproduct() {
 
+    //added states
     const {handleSubmit, register} = useForm();
-    const [emailError, setEmailError] = useState('');
     const [isError, setIsError] = useState(false);
 
-    const validateEmail = (e) => {
-        var email = e.target.value;
-      
-        if (validator.isEmail(email)) {
-          setEmailError('Valid Email');
-        } else {
-          setEmailError('Enter valid Email!');
-        }
-      }
     //adding state
     const [date, setDate] = useState(new Date());
 
     return (
         <>
         <div className="container">
-            <h3 style = {{marginLeft:"440px"}}><b>My Complaint</b></h3>
+            <h3 style = {{marginLeft:"440px"}}><b>Sell Product</b></h3>
           <form>
           <FormGroup>
             <Label for="Name">Product Name</Label>

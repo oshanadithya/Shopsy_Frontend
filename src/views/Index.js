@@ -49,7 +49,8 @@ function Index() {
         <IndexHeader />
         <div className="main">
           <Images />
-
+          <Sellproduct />
+          <Cart />
           <ContactUS />
         </div>
         <DarkFooter />
