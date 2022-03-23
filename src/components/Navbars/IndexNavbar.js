@@ -1,5 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
+
+
 // reactstrap components
 import {
   Button,
@@ -18,6 +21,8 @@ import {
 } from "reactstrap";
 
 function IndexNavbar() {
+  const history = useHistory();
+  const navigateTo = () => history.push('/Cart');//eg.history.push('/login');
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
   const [collapseOpen, setCollapseOpen] = React.useState(false);
   React.useEffect(() => {
@@ -109,6 +114,7 @@ function IndexNavbar() {
                   }}
                 >
                   <i className=""></i>
+                  <HashLink smooth to="/#elem1"></HashLink>
                   <p>Contact Us</p>
                 </NavLink>
               </NavItem>
@@ -167,6 +173,23 @@ function IndexNavbar() {
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
+
+              <NavItem>
+                <NavLink
+                  href="Cart"
+                  target="_blank"
+                  /*onClick={(e) => {
+                    e.preventDefault();
+                    document
+                      .getElementById("download-section")
+                      .scrollIntoView();
+                  }}*/
+                  onClick={navigateTo}
+                >
+                  <i className=""></i>
+                  <p>Cart</p>
+                </NavLink>
+              </NavItem>
 
               
               <NavItem>

@@ -11,7 +11,7 @@ function ContactUS () {
         <div className='ContactForm'>
             <div class='container'>
             
-            <div className ='h2'> Contact Us </div>
+            <div className ='h2' id="elem1"> Contact Us </div>
                 <div className='row'>
                 <div className='col-12 text-center'>
                     <div className='contactForm'>

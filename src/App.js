@@ -44,12 +44,13 @@ function App() {
                 path="/login-page"
                 render={(props) => <LoginPage {...props} />}
                 />
+                
                 <Redirect to="/index" />
                 <Redirect from="/" to="/index" />
 
                 
                 <Route path="/Cart" exact>
-                <Redirect from="/" to="/index" />
+                <Redirect from="/" to="./views/Cart" />
                 </Route> 
             </Switch>
         </BrowserRouter>

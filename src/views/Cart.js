@@ -36,7 +36,7 @@ function Cart() {
                     <figure class="itemside">
                         <div class="aside"><img src="assets/images/items/1.jpg" class="img-sm" /></div>
                         <figcaption class="info">
-                            <a href="#" class="title text-dark">Some name of item goes here nice</a>
+                            <a href="#" class="title text-dark">Item Name</a>
                             <p class="text-muted small">Size: XL, Color: blue, <br /> Brand: Gucci</p>
                         </figcaption>
                     </figure>
@@ -65,7 +65,7 @@ function Cart() {
                     <figure class="itemside">
                         <div class="aside"><img src="assets/images/items/2.jpg" class="img-sm" /></div>
                         <figcaption class="info">
-                            <a href="#" class="title text-dark">Product name  goes here nice</a>
+                            <a href="#" class="title text-dark">Product name </a>
                             <p class="text-muted small">Size: XL, Color: blue, <br /> Brand: Gucci</p>
                         </figcaption>
                     </figure>
@@ -94,7 +94,7 @@ function Cart() {
                     <figure class="itemside">
                         <div class="aside"><img src="assets/images/items/3.jpg" class="img-sm" /></div>
                         <figcaption class="info">
-                            <a href="#" class="title text-dark">Another name of some product goes just here</a>
+                            <a href="#" class="title text-dark">Product Name</a>
                             <p class="small text-muted">Size: XL, Color: blue,  Brand: Tissot</p>
                         </figcaption>
                     </figure>
@@ -177,18 +177,7 @@ function Cart() {
             <section class="section-name bg padding-y">
             <div class="container">
             <h6>Payment and refund policy</h6>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Sample Refund policy</p>
             
             </div>
         </section>
