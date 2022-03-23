@@ -22,7 +22,10 @@ import {
 
 function IndexNavbar() {
   const history = useHistory();
-  const navigateTo = () => history.push('/Cart');//eg.history.push('/login');
+  const navigateTo = () => {history.push({
+    pathname: "/cart",
+    });
+  };
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
   const [collapseOpen, setCollapseOpen] = React.useState(false);
   React.useEffect(() => {
@@ -184,7 +187,7 @@ function IndexNavbar() {
                       .getElementById("download-section")
                       .scrollIntoView();
                   }}*/
-                  onClick={navigateTo}
+                  to={navigateTo}
                 >
                   <i className=""></i>
                   <p>Cart</p>

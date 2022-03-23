@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.12.3",
+    "axios": "^0.26.1",
     "emailjs-com": "^3.2.0",
     "gulp": "4.0.2",
     "gulp-append-prepend": "1.0.9",

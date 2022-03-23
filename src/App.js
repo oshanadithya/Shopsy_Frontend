@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 
 import Index from "views/Index.js";
+import { ContactUS } from "views/ContactUs";
+import { Cart } from "views/Cart";
 
 // styles for this kit
 import "assets/css/bootstrap.min.css";
@@ -49,9 +51,14 @@ function App() {
                 <Redirect from="/" to="/index" />
 
                 
-                <Route path="/Cart" exact>
-                <Redirect from="/" to="./views/Cart" />
+                <Route path="/cart" exact>
+                <Cart></Cart>
                 </Route> 
+
+                <Route path="/contact-us" exact>
+                <ContactUS></ContactUS>
+                </Route>
+
             </Switch>
         </BrowserRouter>
     );
