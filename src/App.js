@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import Index from "views/Index.js";
 import { ContactUS } from "views/ContactUs";
 import { Cart } from "views/Cart";
+import { Sellproduct } from "views/SellProduct";
 
 // styles for this kit
 import "assets/css/bootstrap.min.css";
@@ -53,6 +54,10 @@ function App() {
                 
                 <Route path="/cart" exact>
                 <Cart></Cart>
+                </Route> 
+
+                <Route path="/sell-product" exact>
+                <Sellproduct></Sellproduct>
                 </Route> 
 
                 <Route path="/contact-us" exact>
