@@ -42,7 +42,7 @@ function LoginPage() {
           className="page-header-image"
           style={{
             backgroundImage:
-              "url(" + require("assets/img/login.jpg").default + ")",
+              "url(" + require("assets/img/login_bg.jpg").default + ")",
           }}
         ></div>
         <div className="content">
@@ -54,7 +54,7 @@ function LoginPage() {
                     <div className="logo-container">
                       <img
                         alt="..."
-                        src={require("assets/img/now-logo.png").default}
+                        src={require("assets/img/shopsy.png").default}
                       ></img>
                     </div>
                   </CardHeader>
@@ -105,9 +105,9 @@ function LoginPage() {
                       onClick={(e) => e.preventDefault()}
                       size="lg"
                     >
-                      Get Started
+                      SIGN IN
                     </Button>
-                    <div className="pull-left">
+                    <div className="pull-center">
                       <h6>
                         <a
                           className="link"
@@ -118,17 +118,7 @@ function LoginPage() {
                         </a>
                       </h6>
                     </div>
-                    <div className="pull-right">
-                      <h6>
-                        <a
-                          className="link"
-                          href="#pablo"
-                          onClick={(e) => e.preventDefault()}
-                        >
-                          Need Help?
-                        </a>
-                      </h6>
-                    </div>
+                
                   </CardFooter>
                 </Form>
               </Card>
