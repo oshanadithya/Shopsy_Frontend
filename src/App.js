@@ -52,18 +52,17 @@ function App() {
                 path="/signup-page"
                 render={(props) => <SignUp {...props} />}
                 />
-                
+
                 <Redirect to="/index" />
                 <Redirect from="/" to="/index" />
 
-                
                 <Route path="/cart" exact>
                 <Cart></Cart>
-                </Route> 
+                </Route>
 
                 <Route path="/sell-product" exact>
                 <Sellproduct></Sellproduct>
-                </Route> 
+                </Route>
 
                 <Route path="/contact-us" exact>
                 <ContactUS></ContactUS>
