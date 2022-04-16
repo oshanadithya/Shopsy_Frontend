@@ -1,13 +1,55 @@
 // reactstrap components
+import IndexNavbar from "components/Navbars/IndexNavbar.js";
+import IndexHeader from "components/Headers/IndexHeader.js";
+import DarkFooter from "components/Footers/DarkFooter.js";
+
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from 'react-toastify';
+import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 import {Button} from "reactstrap";
 
 function Cart() {
+
+    //adding state
+    const [qty, setQty] = useState("");
+    const [date, setDate] = useState(new Date());
+    const [pname, setPName] = useState("");
+    const [cname, setCName] = useState("");
+    const [pid, setPid] = useState("");
+    const [price, setPrice] = useState("");
+    const [expdate, setExpdate] = useState("");
+    const [mandate, setMandate] = useState("");
+
+    const [details, setDetails] = useState("");
+
+    let history = useHistory();
+
+
+    useEffect(() => {
+        axios.get(`http://localhost:8070/ComplaintRoute/getComplaint/`).then((res) => {
+  
+            console.log(res.data);
+            setPName(res.data.pname);
+            setCName(res.data.cname);
+            setPid(res.data.pid);
+            setPrice(res.data.price);
+            setExpdate(res.data.expdate);
+            setMandate(res.data.mandate);
+  
+          }).catch((err)=>{
+            console.log(err);
+          })
+    },[]);
+
     return (
         <>
+        <IndexNavbar />
+        <div className="wrapper">
+        <IndexHeader />
+        <div className="main">
         <section class="section-pagetop bg">
             <div class="container">
                 <h2 class="title-page">Shopping cart</h2>
@@ -36,8 +78,9 @@ function Cart() {
                     <figure class="itemside">
                         <div class="aside"><img src="assets/images/items/1.jpg" class="img-sm" /></div>
                         <figcaption class="info">
-                            <a href="#" class="title text-dark">Item Name</a>
-                            <p class="text-muted small">Size: XL, Color: blue, <br /> Brand: Gucci</p>
+                            <a href="#" class="title text-dark" onChange={(e)=>{
+                            setPName(e.target.value);
+                            }}></a>
                         </figcaption>
                     </figure>
                 </td>
@@ -51,8 +94,10 @@ function Cart() {
                 </td>
                 <td> 
                     <div class="price-wrap"> 
-                        <var class="price">$1156.00</var> 
-                        <small class="text-muted"> $315.20 each </small> 
+                        <var class="price" ></var> 
+                        <small class="text-muted" onChange={(e)=>{
+                        setPrice(e.target.value);
+                        }}> each </small> 
                     </div> 
                 </td>
                 <td class="text-right"> 
@@ -60,63 +105,7 @@ function Cart() {
                 <a href="" class="btn btn-light"> Remove</a>
                 </td>
             </tr>
-            <tr>
-                <td>
-                    <figure class="itemside">
-                        <div class="aside"><img src="assets/images/items/2.jpg" class="img-sm" /></div>
-                        <figcaption class="info">
-                            <a href="#" class="title text-dark">Product name </a>
-                            <p class="text-muted small">Size: XL, Color: blue, <br /> Brand: Gucci</p>
-                        </figcaption>
-                    </figure>
-                </td>
-                <td> 
-                    <select class="form-control">
-                        <option>1</option>
-                        <option>2</option>  
-                        <option>3</option>  
-                        <option>4</option>  
-                    </select> 
-                </td>
-                <td> 
-                    <div class="price-wrap"> 
-                        <var class="price">$149.97</var> 
-                        <small  class="text-muted"> $75.00 each </small>  
-                    </div> 
-                </td>
-                <td class="text-right"> 
-                <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light mr-2" data-toggle="tooltip"> <i class="fa fa-heart"></i></a> 
-                <a href="" class="btn btn-light btn-round"> Remove</a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <figure class="itemside">
-                        <div class="aside"><img src="assets/images/items/3.jpg" class="img-sm" /></div>
-                        <figcaption class="info">
-                            <a href="#" class="title text-dark">Product Name</a>
-                            <p class="small text-muted">Size: XL, Color: blue,  Brand: Tissot</p>
-                        </figcaption>
-                    </figure>
-                </td>
-                <td> 
-                    <select class="form-control">
-                        <option>1</option>
-                        <option>2</option>  
-                        <option>3</option>  
-                    </select> 
-                </td>
-                <td> 
-                    <div class="price-wrap"> 
-                        <var class="price">$98.00</var> 
-                        <small class="text-muted"> $578.00 each</small> 
-                    </div> 
-                </td>
-                <td class="text-right"> 
-                    <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light mr-2" data-toggle="tooltip"> <i class="fa fa-heart"></i></a> 
-                    <a href="" class="btn btn-light btn-round"> Remove</a>
-                </td>
-            </tr>
+            
             </tbody>
             </table>
             
@@ -181,6 +170,9 @@ function Cart() {
             
             </div>
         </section>
+        </div>
+        <DarkFooter />
+        </div>
         </>
     )
 }

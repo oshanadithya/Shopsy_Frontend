@@ -29,6 +29,7 @@ import Download from "./index-sections/Download.js";
 import { ContactUS } from "./ContactUs.js";
 import { Cart } from "./Cart.js";
 import { Sellproduct } from "./SellProduct.js";
+import LoginPage from "./examples/LoginPage.js";
  
 function Index() {
   React.useEffect(() => {
@@ -49,8 +50,6 @@ function Index() {
         <IndexHeader />
         <div className="main">
           <Images />
-          <Sellproduct />
-          <Cart />
           <ContactUS />
         </div>
         <DarkFooter />

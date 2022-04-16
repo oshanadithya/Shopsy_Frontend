@@ -47,11 +47,7 @@ function App() {
                 path="/login-page"
                 render={(props) => <LoginPage {...props} />}
                 />
-                
-                <Redirect to="/index" />
-                <Redirect from="/" to="/index" />
 
-                
                 <Route path="/cart" exact>
                 <Cart></Cart>
                 </Route> 

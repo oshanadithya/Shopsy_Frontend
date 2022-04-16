@@ -21,11 +21,21 @@ import {
 } from "reactstrap";
 
 function IndexNavbar() {
+
   const history = useHistory();
-  const navigateTo = () => {history.push({
-    pathname: "/cart",
+
+  const navigateTo = () => {
+    history.push({
+      pathname: "/cart",
     });
   };
+
+  const navigateToIndex = () => {
+    history.push({
+      pathname: "/Index",
+    });
+  };
+
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
   const [collapseOpen, setCollapseOpen] = React.useState(false);
   React.useEffect(() => {
@@ -94,12 +104,13 @@ function IndexNavbar() {
               <NavItem>
                 <NavLink
                   href="#pablo"
-                  onClick={(e) => {
+                  /*onClick={(e) => {
                     e.preventDefault();
                     document
                       .getElementById("download-section")
                       .scrollIntoView();
-                  }}
+                  }}*/
+                  onClick = {navigateToIndex}
                 >
                   <i className=""></i>
                   <p>Shop</p>
@@ -187,7 +198,8 @@ function IndexNavbar() {
                       .getElementById("download-section")
                       .scrollIntoView();
                   }}*/
-                  to={navigateTo}
+                  onClick  = {navigateTo}
+                  //to={navigateTo}
                 >
                   <i className=""></i>
                   <p>Cart</p>
