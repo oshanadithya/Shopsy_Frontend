@@ -18,7 +18,7 @@ import NucleoIcons from "views/NucleoIcons.js";
 import LoginPage from "views/examples/LoginPage.js";
 import LandingPage from "views/examples/LandingPage.js";
 import ProfilePage from "views/examples/ProfilePage.js";
-import SignUp from "views/signup.js";
+import SignUp from "views/Signup.js";
 
 function App() {
 

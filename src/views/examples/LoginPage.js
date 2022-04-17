@@ -1,4 +1,8 @@
 import React from "react";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { useHistory, useLocation } from "react-router-dom";
+import { ReactSession } from "react-client-session";
 
 // reactstrap components
 import {
@@ -20,7 +24,43 @@ import {
 import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
 import TransparentFooter from "components/Footers/TransparentFooter.js";
 
-function LoginPage() {
+function LoginPage({ user, setuser }) {
+
+  const history = useHistory();
+  const [Email, setEmail] = useState("");
+  const [Password, setPassword] = useState("");
+  const [alertDanger, setAlertDanger] = React.useState(false);
+  const [message, setmessage] = useState("");
+
+  const login = (e) => {
+    e.preventDefault();
+    axios.get(`http://localhost:8070/users/check/${Email}`).then((res) => {
+      if (res.data === true) {
+        axios.get(`http://localhost:8070/users/get/${Email}`).then((res) => {
+          if (Password != res.data.password) {
+            setmessage("Incorrect password!");
+            setAlertDanger(true);
+          } else {
+            ReactSession.set("user", res.data);
+            console.log(res.data);
+            console.log(ReactSession.get("user"));
+            dashboard();
+            setAlertDanger(false);
+          }
+        });
+      } else {
+        setmessage("Please check your username");
+        setAlertDanger(true);
+      }
+    });
+  };
+
+  const dashboard = () => {
+    history.push({
+      pathname: "/user-dashboard",
+    });
+  };
+
   const [firstFocus, setFirstFocus] = React.useState(false);
   const [lastFocus, setLastFocus] = React.useState(false);
   React.useEffect(() => {
@@ -65,14 +105,20 @@ function LoginPage() {
                         (firstFocus ? " input-group-focus" : "")
                       }
                     >
+
+
+
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText>
                           <i className="now-ui-icons users_circle-08"></i>
                         </InputGroupText>
                       </InputGroupAddon>
                       <Input
-                        placeholder="First Name..."
+                        placeholder="Email"
                         type="text"
+                        onChange={(e) => setEmail(e.target.value)}
+                        value={Email}
+                        required
                         onFocus={() => setFirstFocus(true)}
                         onBlur={() => setFirstFocus(false)}
                       ></Input>
@@ -83,14 +129,20 @@ function LoginPage() {
                         (lastFocus ? " input-group-focus" : "")
                       }
                     >
+
+
+
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText>
                           <i className="now-ui-icons text_caps-small"></i>
                         </InputGroupText>
                       </InputGroupAddon>
                       <Input
-                        placeholder="Last Name..."
-                        type="text"
+                        placeholder="Password"
+                        type="password"
+                        onChange={(e) => setPassword(e.target.value)}
+                        value={Password}
+                        required
                         onFocus={() => setLastFocus(true)}
                         onBlur={() => setLastFocus(false)}
                       ></Input>
@@ -108,15 +160,12 @@ function LoginPage() {
                       SIGN IN
                     </Button>
                     <div className="pull-center">
-                      <h6>
-                        <a
-                          className="link"
-                          href="#pablo"
-                          onClick={(e) => e.preventDefault()}
-                        >
-                          Create Account
-                        </a>
-                      </h6>
+                    <label color="black">
+                       Don't have an account?{" "}
+                         <a href="/signup-page">
+                          <strong>Create an account</strong>
+                </a>
+              </label>
                     </div>
                 
                   </CardFooter>

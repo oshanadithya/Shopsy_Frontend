@@ -1,81 +1,81 @@
 import React from "react";
 import styles from '../assets/css/signup.module.css'
-import { useState, useEffect  } from 'react';
+import { useState, useEffect } from "react";
 import axios from 'axios';
 
 // reactstrap components
 import {
   Button,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
   Label,
   Form,
   Input,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroup,
-  Container,
-  Col,
 } from "reactstrap";
 
 // core components
 import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
 import TransparentFooter from "components/Footers/TransparentFooter.js";
+import { toast } from "react-toastify";
 
-function LoginPage() {
+toast.configure();
 
-    const [InsurenceID , setInsurenceId] = useState("");
-    const [InsurenceName , setInsurenceName] = useState("");
-    const [InsurencePrice , setInsurencePrice] = useState("");
-    const [InsurenceCoverage , setInsurenceCoverage] = useState("");
-    const [InsurenceAccidentType , setInsurenceAccidentType] = useState("");
-    const [InsurenceDetails , setInsurenceDetails] = useState("");
+function Signup() {
+
+    const [FirstName , setFirstName] = useState("");
+    const [LastName , setLastName] = useState("");
+    const [BirthDay , setBirthDay] = useState("");
+    const [PhoneNo , setPhoneNo] = useState("");
+    const [Email , setEmail] = useState("");
+    const [Gender , setGender] = useState("");
+    const [Password , setPassword] = useState("");
     const [message , setMessage] = useState("");
+    const [usernameError , setError] = useState("");
 
 
 function sendData(e){
     e.preventDefault();
 
-    const newInsurence = {
-        InsurenceID,
-        InsurenceName,
-        InsurencePrice,
-        InsurenceCoverage,
-        InsurenceAccidentType,
-        InsurenceDetails,
-        
-    }
+    //checking wheather the email alreday available
+    axios.get(`http://localhost:8070/users/check/${Email}`).then((res) =>{
+      if (res.data === true){
+        setError("Please use a different username!");
+        toast.error("Username already exists!", {
+          position: toast.POSITION.BOTTOM_RIGHT,
+          autoClose: 10000,
+          hideProgressBar: false,
+        });
+        setEmail("");
+      }
+      else{
 
+        const newUser = {
+          FirstName,
+          LastName,
+          BirthDay,
+          PhoneNo,
+          Email,
+          Gender,
+          Password
+          
+          }
+          axios.post("http://localhost:8070/users/add", newUser).then(()=>{
+                  alert("SignUp Details Added");
+                  window.location.reload();
+            
+                }).catch((err)=>{
+                  alert(err)
+                })
 
-axios.post("http://localhost:8070/insurences/add-package" , newInsurence ).then(()=>{
-    window.location.reload();
-}).catch((err)=>{
-    alert(err);
+      }
     })
-}
+
+  }
 
 
-  const [firstFocus, setFirstFocus] = React.useState(false);
-  const [lastFocus, setLastFocus] = React.useState(false);
-  React.useEffect(() => {
-    document.body.classList.add("login-page");
-    document.body.classList.add("sidebar-collapse");
-    document.documentElement.classList.remove("nav-open");
-    window.scrollTo(0, 0);
-    document.body.scrollTop = 0;
-    return function cleanup() {
-      document.body.classList.remove("login-page");
-      document.body.classList.remove("sidebar-collapse");
-    };
 
-
-  }, []);
   return (
     <>
       <ExamplesNavbar />
-      <div className="page-header clear-filter">
+      <div className="page-header clear-filter" filter-color="blue">
         <div
           className="page-header-image"
           style={{
@@ -84,66 +84,80 @@ axios.post("http://localhost:8070/insurences/add-package" , newInsurence ).then(
           }}
         ></div>
 
-        <div>
-
 
                   <div style = {{paddingTop : "50px"}} className = {styles.body}>
-            <br/><br/><h3 className = {styles.header} style = {{textAlign : 'center'}}>Insert Insurance Plan Details</h3><br/><br/>
+            <br/><br/><h3 className = {styles.header} style = {{textAlign : 'center'}}>Create Account</h3><br/><br/>
             <div className = {styles.FormContainer}>
             <form onSubmit = {sendData}>
 
-                <Label for = "InsurenceID">Insurance Plan ID</Label><br/>
-                <Input type = 'text' name = "InsurenceID" placeholder = "Enter Plan ID" pattern="[I]{1}[P]{1}[0-9]{3}"
-		               title="Invalid Insurence ID pattern! Ex:IPxxx" required
+                <Label for = "firstName">First Name</Label><br/>
+                <Input type = 'text' name = "firstName" placeholder = "Enter First Name" 
+		              required
                 onChange = {(e) => {
-                    setInsurenceId(e.target.value);
+                  setFirstName(e.target.value);
                 }}></Input><br/>
 
-                <Label for = "InsurenceName">Insurance Plan Name</Label><br/>
-                <Input type = 'text' name = "InsurenceName" placeholder = "Enter Plan Name" required
+                <Label for = "LastName">Last Name</Label><br/>
+                <Input type = 'text' name = "LastName" placeholder = "Enter Last name" required
                 onChange = {(e) =>{
-                    setInsurenceName(e.target.value);
+                  setLastName(e.target.value);
                 }}></Input><br/>
 
-                <Label for = "InsurencePrice">Insurance Plan Price</Label><br/>
-                <Input type = 'text' name = "InsurencePrice" placeholder = "Enter The Price"  pattern="[R]{1}[s]{1}[0-9]+"
-                       title="Invalid Price pattern! Ex:Rsxxxx" required
+                <Label for = "BirthDay">Date Of Birth</Label><br/>
+                <Input type = 'date' name = "BirthDay" placeholder = "Enter Your Birthday"
+                     required
                 onChange = {(e)=>{
-                    setInsurencePrice(e.target.value);
+                  setBirthDay(e.target.value);
                 }}></Input><br/>
 
-                <Label for = "InsurenceCoverage">Coverage</Label><br/>
-                <Input type = 'text' name = "InsurenceCoverage" placeholder = "Enter The Coverage" required
+                <Label for = "PhoneNo">Phone No</Label><br/>
+                <Input type = 'text' name = "PhoneNo" placeholder = "Enter The Phone NO" pattern = "[0-9]{10}"
+                title = "Enter a 10 digit phone number starting with 0" required
                 onChange = {(e)=>{
-                    setInsurenceCoverage(e.target.value);
+                  setPhoneNo(e.target.value);
                 }}></Input><br/>
 
-                <Label for = "InsurenceAccidentType">Accident types</Label><br/>
-                <Input type = 'text' name = "InsurenceAccidentType" placeholder = "Enter The Accident Types" required
+                <Label for = "Email">Email Address</Label><br/>
+                <Input type = 'email' name = "Email" placeholder = "Enter The Email Address" 
+                title = "Enter a valid email" required
                 onChange = {(e)=>{
-                    setInsurenceAccidentType(e.target.value);
+                  setEmail(e.target.value);
                 }}></Input><br/>
 
 
-                <Label for = "InsurenceDetails">Insurance Plan Description</Label><br/> 
-                <Input type = "text" name = "InsurenceDetails"  required
+                <Label for = "Gender">Gender</Label><br/> 
+                <Input type = "text" name = "Gender" placeholder = "Enter Gender"   required
                 onChange = {(e)=>{
-                    setInsurenceDetails(e.target.value);
+                  setGender(e.target.value);
                 }}></Input><br/>
+
+                <Label for = "Password">Password</Label><br/> 
+                <Input type = "password" name = "Password" placeholder = "Enter The Password"   required
+                onChange = {(e)=>{
+                  setPassword(e.target.value);
+                }}></Input><br/>
+
+          
 
                 <span style = {{textAlign:"left" , color : "red"}}>{message}</span>
-                <Button color = "primary" type = "submit" style = {{float:'right' , margin : "5px" }}
+                <Button color = "primary" type = "submit" style = {{float:'center' , margin : "5px" }}
                 
-                >Add Plan</Button>
+                >Add Plan</Button><br></br>
+
+                <label color="black">
+                Already have an account?{" "}
+                <a href="/login-page">
+                  <strong>Sign IN</strong>
+                </a>
+              </label>
 
             </form>    
             </div>
-        </div> 
-        </div>  
+        </div>   
         <TransparentFooter />
       </div>
     </>
   );
 }
 
-export default LoginPage;
+export default Signup;
