@@ -29,6 +29,40 @@ function ProductHistory () {
         getProducts();
     },[]);
 
+
+    const productDelete = (del) => {
+
+      if (
+        window.confirm(
+          "Confirm to remove?"
+        )
+      )
+      axios.delete(`http://localhost:8070/SellProduct/deleteProduct/${
+       del._id}`
+      )
+      .then((res) =>{
+          console.log(res);
+          toast.success("Product Deleted!", {
+              position: "bottom-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              });     
+      }).catch((err) =>{
+          console.log(err);
+          alert(err);
+          toast.error("Something went wrong :(", {
+            position: toast.POSITION.BOTTOM_RIGHT,
+            autoClose: 10000,
+            hideProgressBar: false,
+          });
+      });
+    }
+
+
       let history = useHistory();
       var number = 1;
 
@@ -54,7 +88,7 @@ function ProductHistory () {
                         }
                       }
                 })
-                .map((SellProduct) => {
+                .map((SellProduct) => (
                     <div style = {{marginLeft:"20px"}}  className = "tableContainer">
                     <table className = "table table-striped">
                         <thead>
@@ -88,15 +122,15 @@ function ProductHistory () {
 
                             <td><Button color="warning"  style = {{padding: "5px 5px 5px 5px" , width : "60px" , marginBottom : "8px"}}
                                 onClick = {()=>{
-                                    history.push(`/update-SellProduct/${SellProduct._id}`);
+                                    history.push(`/update-product/${SellProduct._id}`);
                                 }}
                                 >Edit</Button>
             
                                 <Button color="danger" style = {{padding: "5px 5px 5px 5px", width : "70px", marginBottom : "8px"}}
-                                /*onClick = {() =>
+                                onClick = {() =>
 
-                                        SellProductDelete(SellProduct)
-                                } */
+                                        productDelete(SellProduct)
+                                }
                                 
                                 >Remove</Button>
                                 </td>
@@ -105,7 +139,7 @@ function ProductHistory () {
                         </tbody>
                     </table>
                     </div>
-                })
+                ))
             }
         </div>
       )

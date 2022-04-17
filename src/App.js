@@ -18,6 +18,7 @@ import NucleoIcons from "views/NucleoIcons.js";
 import LoginPage from "views/examples/LoginPage.js";
 import LandingPage from "views/examples/LandingPage.js";
 import ProfilePage from "views/examples/ProfilePage.js";
+import { UpdateProduct } from "views/UpdateProduct";
 
 function App() {
 
@@ -58,6 +59,10 @@ function App() {
 
                 <Route path="/contact-us" exact>
                 <ContactUS></ContactUS>
+                </Route>
+
+                <Route path="/update-product/:id" exact>
+                <UpdateProduct></UpdateProduct>
                 </Route>
 
             </Switch>
