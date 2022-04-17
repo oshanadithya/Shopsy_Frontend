@@ -84,46 +84,46 @@ function Sellproduct () {
             <Label for="Name">Product Name</Label>
             <Input type="text" name="pname" id="idPName" placeholder="Chocolate Marie" onChange={(e)=>{
               setPName(e.target.value);
-            }}/>
+            }}required/>
           </FormGroup>
           <FormGroup>
             <Label for="Email">Company Name</Label>
             <Input type="text" name="cname" id="idcname" placeholder="Malibun" onChange={(e)=>{
               setCName(e.target.value);
-            }}></Input>
+            }}required></Input>
           </FormGroup>
           <FormGroup>
           <Label for="date">Product ID</Label>
           <br></br>
             <Input type="text" name="pid" id="idp" placeholder="MCM001" onChange={(e)=>{
               setPid(e.target.value);
-            }}></Input>
+            }}required></Input>
           </FormGroup>
           <FormGroup>
           <Label for="date">Product Price (Rs)</Label>
           <br></br>
             <Input type="text" name="price" id="idprice" placeholder="300" onChange={(e)=>{
               setPrice(e.target.value);
-            }}></Input>
+            }}required></Input>
           </FormGroup>
           <FormGroup>
           <Label for="date">Expire Date</Label>
-            <DatePicker selected={expdate} type="date" name="expdate" onChange={(e)=>{
-              setExpdate(e.target.value);
-            }}/>
+            <DatePicker selected={expdate} type="date" name="expdate" onChange={(date)=>{
+              setExpdate(date);
+            }}required/>
           </FormGroup>
           <FormGroup>
           <Label for="date">Manufacture Date</Label>``
-            <DatePicker selected={mandate} type="date" name="mandate" onChange={(e)=>{
-              setMandate(e.target.value);
-            }}/>
+            <DatePicker selected={mandate} type="date" name="mandate" onChange={(date)=>{
+              setMandate(date);
+            }}required/>
           </FormGroup>
           
           <FormGroup>
             <Label for="exampleText">Product Description</Label>
             <Input type="text" name="desc" onChange={(e)=>{
               setDesc(e.target.value);
-            }} placeholder="Description"/>
+            }} placeholder="Description" required/>
           </FormGroup>
           <Button color="primary" type="submit">
             Add
