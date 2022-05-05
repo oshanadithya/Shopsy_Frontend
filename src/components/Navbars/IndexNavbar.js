@@ -188,23 +188,7 @@ function IndexNavbar() {
                 </DropdownMenu>
               </UncontrolledDropdown>
 
-              <NavItem>
-                <NavLink
-                  href="Cart"
-                  target="_blank"
-                  /*onClick={(e) => {
-                    e.preventDefault();
-                    document
-                      .getElementById("download-section")
-                      .scrollIntoView();
-                  }}*/
-                  onClick  = {navigateTo}
-                  //to={navigateTo}
-                >
-                  <i className=""></i>
-                  <p>Cart</p>
-                </NavLink>
-              </NavItem>
+              
 
               
               <NavItem>

@@ -1,5 +1,4 @@
-import React, { useState, useEffect, Component } from "react";
-import { useForm } from "react-hook-form";
+import React, { useState} from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
@@ -7,13 +6,9 @@ import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import IndexHeader from "components/Headers/IndexHeader.js";
 import DarkFooter from "components/Footers/DarkFooter.js";
 
-import validator from 'validator';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import TextField from "@material-ui/core/TextField";
-import InputAdornment from "@material-ui/core/InputAdornment";
 import 'react-phone-number-input/style.css';
-import PhoneInput from 'react-phone-number-input';
 import { ProductHistory } from "./ProductHistory";
 
 // core components
@@ -27,8 +22,6 @@ import {
 function Sellproduct () {
 
   //added states
-  const {handleSubmit, register} = useForm();
-  const [isError, setIsError] = useState(false);
 
   const [pname, setPName] = useState("");
   const [cname, setCName] = useState("");
@@ -38,7 +31,7 @@ function Sellproduct () {
   const [mandate, setMandate] = useState(new Date());
   const [desc, setDesc] = useState("");
 
-  const [details, setDetails] = useState("");
+  //const [details, setDetails] = useState("");
 
   let history = useHistory();
 

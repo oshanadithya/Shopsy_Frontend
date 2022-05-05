@@ -24,6 +24,7 @@ function Cart() {
     const [mandate, setMandate] = useState("");
 
     const [details, setDetails] = useState("");
+    const [products, setProducts] = useState([]);
 
     let history = useHistory();
 
@@ -43,6 +44,19 @@ function Cart() {
             console.log(err);
           })
     },[]);
+
+    useEffect(() => {
+        function getProducts() {
+            axios.get("http://localhost:8070/SellProduct/").then((res) => {
+              setProducts(res.data);
+              console.log(res);
+            }).catch((err) => {
+              alert("Something went wrong :(");
+              alert(err.message);
+            });
+        };
+          getProducts();
+      },[]);
 
     return (
         <>
@@ -66,7 +80,7 @@ function Cart() {
             <table class="table table-borderless table-shopping-cart">
             <thead class="text-muted">
             <tr class="small text-uppercase">
-            <th scope="col">Product</th>
+            <th scope="col">Product Details</th>
             <th scope="col" width="120">Quantity</th>
             <th scope="col" width="120">Price</th>
             <th scope="col" class="text-right" width="200"> </th>
@@ -80,9 +94,9 @@ function Cart() {
                         <figcaption class="info">
                             <a href="#" class="title text-dark" onChange={(e)=>{
                             setPName(e.target.value);
-                            }}></a>
+                            }}>{products.map((SellProduct) =>(<div><td>{SellProduct.pname}</td><td>{SellProduct.cname}</td><td>{SellProduct.price}</td><td>{SellProduct.desc}</td></div>))}</a>
                         </figcaption>
-                    </figure>
+                 </figure>
                 </td>
                 <td> 
                     <select class="form-control">

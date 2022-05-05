@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link, useHistory } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 // reactstrap components
 // import {
@@ -42,6 +44,13 @@ import LoginPage from "./examples/LoginPage.js";
 function Index() {
 
   const [products, setProducts] = useState([]);
+  const history = useHistory();
+
+  const navigateTo = () => {
+    history.push({
+      pathname: "/cart",
+    });
+  };
 
   useEffect(() => {
     function getProducts() {
@@ -85,7 +94,7 @@ function Index() {
                   <MDBCardText>
                     {products.map((SellProduct) =>(<div>{SellProduct.pname}{SellProduct.price}{SellProduct.desc}</div>))}
                   </MDBCardText>
-                  <MDBBtn href='#'>Buy</MDBBtn>
+                  <MDBBtn onClick = {navigateTo}>Buy</MDBBtn>
                 </MDBCardBody>
               </MDBCard>
 
