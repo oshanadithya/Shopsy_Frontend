@@ -1,5 +1,4 @@
-import React, { useState, useEffect, Component } from "react";
-import { useForm } from "react-hook-form";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { useParams } from "react-router";
@@ -10,14 +9,9 @@ import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import IndexHeader from "components/Headers/IndexHeader.js";
 import DarkFooter from "components/Footers/DarkFooter.js";
 
-import validator from 'validator';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import TextField from "@material-ui/core/TextField";
-import InputAdornment from "@material-ui/core/InputAdornment";
 import 'react-phone-number-input/style.css';
-import PhoneInput from 'react-phone-number-input';
-import { ProductHistory } from "./ProductHistory";
 
 // core components
 import {
@@ -41,7 +35,7 @@ function UpdateProduct({SellProduct}) {
 
     const {id} = useParams();
 
-    useEffect(()=>{
+    useEffect (()=>{
         axios.get(`http://localhost:8070/SellProduct/getProduct/${id}`)
         .then((res)=>{
           console.log(res.data);
@@ -100,7 +94,7 @@ function UpdateProduct({SellProduct}) {
             progress: undefined,
             });
         })
-    };
+    }
 
         return (
             <>
@@ -161,13 +155,11 @@ function UpdateProduct({SellProduct}) {
                 </Button>
                 </form>
                 </div>
-                <ProductHistory />
                 </div>
                 <DarkFooter />
                 </div>
             </>
         )
-
 
 }
 

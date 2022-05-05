@@ -64,7 +64,6 @@ function App() {
                 <Route path="/update-product/:id" exact>
                 <UpdateProduct></UpdateProduct>
                 </Route>
-
             </Switch>
         </BrowserRouter>
     );
