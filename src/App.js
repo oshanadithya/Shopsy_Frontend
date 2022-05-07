@@ -15,6 +15,10 @@ import "assets/demo/nucleo-icons-page-styles.css?v=1.5.0";
 
 // pages for this kit
 import NucleoIcons from "views/NucleoIcons.js";
+import LoginPage from "views/examples/LoginPage.js";
+import LandingPage from "views/examples/LandingPage.js";
+import ProfilePage from "views/examples/ProfilePage.js";
+import { UpdateProduct } from "views/UpdateProduct";
 
 import LandingPage from "views/examples/LandingPage.js";
 import Userdashboard from "views/examples/Userdashboard.js";
@@ -64,7 +68,7 @@ function App() {
                 path="/login"
                 render={(props) => <loginPage user={user} setuser={setuser} {...props} />}
                 />
-                
+
                 <Redirect to="/index" />
                 <Redirect from="/" to="/index" />
 
@@ -80,6 +84,9 @@ function App() {
                 <ContactUS></ContactUS>
                 </Route>
 
+                <Route path="/update-product/:id" exact>
+                <UpdateProduct></UpdateProduct>
+                </Route>
             </Switch>
         </BrowserRouter>
     );
