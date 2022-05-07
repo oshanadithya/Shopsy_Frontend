@@ -30,7 +30,7 @@ function IndexHeader() {
           style={{
             backgroundImage:
               "url(" + require("assets/img/header1.jpg").default + ")",
-          }}
+              }}
           ref={pageHeader}
         ></div>
         <Container>

@@ -28,6 +28,7 @@ import Download from "./index-sections/Download.js";
 // dev implemented
 import { ContactUS } from "./ContactUs.js";
 
+
  
 function Index() {
   React.useEffect(() => {
