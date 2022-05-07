@@ -58,6 +58,8 @@ function Cart() {
           getProducts();
       },[]);
 
+      var num = products.price + num;
+
     return (
         <>
         <IndexNavbar />
@@ -94,7 +96,7 @@ function Cart() {
                         <figcaption class="info">
                             <a href="#" class="title text-dark" onChange={(e)=>{
                             setPName(e.target.value);
-                            }}>{products.map((SellProduct) =>(<div><td>{SellProduct.pname}</td><td>{SellProduct.cname}</td><td>{SellProduct.price}</td><td>{SellProduct.desc}</td></div>))}</a>
+                            }}>{products.map((SellProduct) =>(<div><td>{SellProduct.pname}</td><td>{SellProduct.cname}</td><td>{SellProduct.desc}</td></div>))}</a>
                         </figcaption>
                  </figure>
                 </td>
@@ -103,12 +105,14 @@ function Cart() {
                         <option>1</option>
                         <option>2</option>  
                         <option>3</option>  
-                        <option>4</option>  
+                        <option>4</option>
+                        <option>5</option>  
                     </select> 
                 </td>
                 <td> 
                     <div class="price-wrap"> 
-                        <var class="price" ></var> 
+                        <var class="price" ></var>
+                        {products.map((SellProduct) =>(<div><td>{SellProduct.price}</td></div>))} 
                         <small class="text-muted" onChange={(e)=>{
                         setPrice(e.target.value);
                         }}> each </small> 
@@ -134,35 +138,20 @@ function Cart() {
             </div>
             
                 </main>
-                <aside class="col-md-3">
-                    <div class="card mb-3">
-                        <div class="card-body">
-                        <form>
-                            <div class="form-group">
-                                <label>Have coupon?</label>
-                                <div class="input-group">
-                                    <input type="text" class="form-control" name="" placeholder="Coupon code" />
-                                    <span class="input-group-append"> 
-                                        <button class="btn btn-primary">Apply</button>
-                                    </span>
-                                </div>
-                            </div>
-                        </form>
-                        </div> 
-                    </div>  
+                <aside class="col-md-3"> 
                     <div class="card">
                         <div class="card-body">
                                 <dl class="dlist-align">
                                 <dt>Total price:</dt>
-                                <dd class="text-right">USD 568</dd>
+                                <dd class="text-right">Rs{products.map((SellProduct) =>(<div><td>{SellProduct.num}</td></div>))}</dd>
                                 </dl>
                                 <dl class="dlist-align">
                                 <dt>Discount:</dt>
-                                <dd class="text-right">USD 658</dd>
+                                <dd class="text-right">Rs 658</dd>
                                 </dl>
                                 <dl class="dlist-align">
                                 <dt>Total:</dt>
-                                <dd class="text-right  h5"><strong>$1,650</strong></dd>
+                                <dd class="text-right  h5"><strong>Rs 1,650</strong></dd>
                                 </dl>
                                 <hr />
                                 <p class="text-center mb-3">
