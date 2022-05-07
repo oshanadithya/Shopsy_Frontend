@@ -15,18 +15,20 @@ import "assets/demo/nucleo-icons-page-styles.css?v=1.5.0";
 
 // pages for this kit
 import NucleoIcons from "views/NucleoIcons.js";
-import LoginPage from "views/examples/LoginPage.js";
-import LandingPage from "views/examples/LandingPage.js";
-import ProfilePage from "views/examples/ProfilePage.js";
-import SignUp from "views/Signup.js";
 
+import LandingPage from "views/examples/LandingPage.js";
+import Userdashboard from "views/examples/Userdashboard.js";
+import SignUp from "views/Signup.js";
+import UserAccount from "views/UserAccount";
+import Edituserform from "views/Edituserform";
+import { ReactSession } from "react-client-session";
 function App() {
 
-    /*useEffect(() => {
+    useEffect(() => {
         ReactSession.setStoreType("localStorage");
       }, []);
 
-      const [user, setuser] = useState({});*/
+      const [user, setuser] = useState({});
 
     return (
         <BrowserRouter>
@@ -41,18 +43,28 @@ function App() {
                 render={(props) => <LandingPage {...props} />}
                 />
                 <Route
-                path="/profile-page"
-                render={(props) => <ProfilePage {...props} />}
+                path="/user-dashboard"
+                render={(props) => <Userdashboard {...props} />}
                 />
                 <Route
-                path="/login-page"
-                render={(props) => <LoginPage {...props} />}
+                path="/account-managment"
+                render={(props) => <UserAccount {...props} />}
                 />
                 <Route
-                path="/signup-page"
+                path="/edit-details"
+                render={(props) => <Edituserform {...props} />}
+                />
+
+                <Route
+                path="/signup"
                 render={(props) => <SignUp {...props} />}
                 />
 
+                <Route
+                path="/login"
+                render={(props) => <loginPage user={user} setuser={setuser} {...props} />}
+                />
+                
                 <Redirect to="/index" />
                 <Redirect from="/" to="/index" />
 

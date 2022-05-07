@@ -6,6 +6,7 @@ import { ReactSession } from "react-client-session";
 
 // reactstrap components
 import {
+  Alert,
   Button,
   Card,
   CardHeader,
@@ -24,7 +25,7 @@ import {
 import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
 import TransparentFooter from "components/Footers/TransparentFooter.js";
 
-function LoginPage({ user, setuser }) {
+function LoginPage({ User, setuser }) {
 
   const history = useHistory();
   const [Email, setEmail] = useState("");
@@ -89,7 +90,27 @@ function LoginPage({ user, setuser }) {
           <Container>
             <Col className="ml-auto mr-auto" md="4">
               <Card className="card-login card-plain">
-                <Form action="" className="form" method="">
+                <Form action="" className="form" method="" onSubmit={login}>
+                <Alert
+                className="alert-with-icon"
+                color="danger"
+                isOpen={alertDanger}
+              >
+                <Container>
+                  <div className="alert-wrapper">
+                    <button
+                      type="button"
+                      className="close"
+                      data-dismiss="alert"
+                      aria-label="Close"
+                      onClick={() => setAlertDanger(false)}
+                    >
+                      <i className="nc-icon nc-simple-remove" />
+                    </button>
+                    <div className="message">{message}</div>
+                  </div>
+                </Container>
+              </Alert>
                   <CardHeader className="text-center">
                     <div className="logo-container">
                       <img
@@ -153,8 +174,7 @@ function LoginPage({ user, setuser }) {
                       block
                       className="btn-round"
                       color="info"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
+                      type = "submit"
                       size="lg"
                     >
                       SIGN IN

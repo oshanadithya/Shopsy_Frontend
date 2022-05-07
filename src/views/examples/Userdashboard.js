@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "../../assets/css/ProfilePage.module.css"
 import { useHistory } from "react-router";
-
+import { ReactSession } from "react-client-session";
+import { useState, useEffect } from "react";
 // reactstrap components
 import {
   Button,
@@ -21,42 +22,58 @@ import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
 import ProfilePageHeader from "components/Headers/ProfilePageHeader.js";
 import DefaultFooter from "components/Footers/DefaultFooter.js";
 
-function ProfilePage() {
+function Userdashboard() {
 
   let history = useHistory();
 
+  const userAccountManagment = () => {
+    history.push({
+      pathname: "/my-tours",
+    });
+  };
+  const handleClickBuyHistory = () => {
+    history.push({
+      pathname: "/user-profile",
+    });
+  };
+  const handleClickOrderDetails = () => {
+    history.push({
+      pathname: "view-itineraries",
+    });
+  };
+  const handleClickPayment = () => {
+    history.push({
+      pathname: "/my-complaint",
+    });
+  };
+  const handleClickSell = () => {
+    history.push({
+      pathname: "/my-feedback",
+    });
+  };
 
-  function handleClickAccounntManagment(){
-    history.push("/account-managment");
-}
+  
+  useEffect(() => {
+    ReactSession.setStoreType("localStorage");
+    if (ReactSession.get("user") != null) {
 
-function handleClickBuyHistory() {
-    history.push("/buy-history");
-}
+      document.body.classList.add("profile-page");
+      document.body.classList.add("sidebar-collapse");
+      document.documentElement.classList.remove("nav-open");
+      window.scrollTo(0, 0);
+      document.body.scrollTop = 0;
+      return function cleanup() {
+        document.body.classList.remove("profile-page");
+        document.body.classList.remove("sidebar-collapse");
+      };
 
-function handleClickOrderDetails() {
-    history.push("/order-details");
-}
-
-function handleClickPayment() {
-    history.push("/payment-details");
-}
-
-function handleClickSell() {
-  history.push("/sell-account");
-}
-
-  const [pills, setPills] = React.useState("2");
-  React.useEffect(() => {
-    document.body.classList.add("profile-page");
-    document.body.classList.add("sidebar-collapse");
-    document.documentElement.classList.remove("nav-open");
-    window.scrollTo(0, 0);
-    document.body.scrollTop = 0;
-    return function cleanup() {
-      document.body.classList.remove("profile-page");
-      document.body.classList.remove("sidebar-collapse");
-    };
+    }
+    else {
+      history.push({
+        pathname: "/login"
+      })
+    }
+   
   }, []);
   return (
     <>
@@ -66,10 +83,11 @@ function handleClickSell() {
 
         <div style = {{paddingTop : "50px"}} className = {styles.body}>
             <h3 className = {styles.header}><center>Dashboard</center></h3><br/><br/>
+            
 
             <div style = {{paddingTop : "50px"}} className = {styles.btn_group}>
             
-                <button className = {styles.btn_insurencemng} onClick = {handleClickAccounntManagment} >Account Management</button>
+                <button className = {styles.btn_insurencemng} onClick = {userAccountManagment} >Account Management</button>
             
         
                 <button className = {styles.btn_insurencemng} onClick = {handleClickBuyHistory} >Buy history</button>
@@ -91,4 +109,4 @@ function handleClickSell() {
   );
 }
 
-export default ProfilePage;
+export default Userdashboard;

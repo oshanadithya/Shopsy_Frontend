@@ -142,7 +142,7 @@ function sendData(e){
                 <span style = {{textAlign:"left" , color : "red"}}>{message}</span>
                 <Button color = "primary" type = "submit" style = {{float:'center' , margin : "5px" }}
                 
-                >Add Plan</Button><br></br>
+                >Create Account</Button><br></br>
 
                 <label color="black">
                 Already have an account?{" "}
