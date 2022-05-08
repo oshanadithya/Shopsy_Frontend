@@ -34,6 +34,11 @@ import DeleteAccount from "views/DeleteAccount";
 import PaymentDetails from "views/PaymentDetails";
 import UpdatePaymentDetails from "views/UpdatePaymentDetails";
 import BuyHistory from "views/BuyHistory";
+import AddSupplier from './components/AddSupplier';
+import SupplierProfile from './components/SupplierProfile';
+
+import Suppliers from "./components/Supplier/Suppliers";
+import UpdateSupplier from "./components/UpdateSupplier";
 function App() {
 
     useEffect(() => {
@@ -42,6 +47,7 @@ function App() {
 
       const [user, setuser] = useState({});
 
+function App(){
     return (
         <BrowserRouter>
             <Switch>
@@ -134,6 +140,11 @@ function App() {
                 <Route path="/addc" component={Complaints}></Route>
                 <Route path="/addcc" component={AllComplaints}></Route>
                 <Route path="/rep" component={Report}></Route>
+
+                <Route path="/home" exact component={Home}></Route>
+                <Route path="/" exact component={Suppliers}></Route>
+                <Route path="/update/:id" exact component={UpdateSupplier}></Route>
+
 
         </BrowserRouter>
     );

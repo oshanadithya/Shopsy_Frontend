@@ -45,11 +45,11 @@ export default class Home extends Component{
     onDelete = (id) =>{
         axios.delete(`/delivery/delete/${id}`).then((res)=>{
             alert("Do you really want to delete this?");
-            
+
             this.retrievePosts();
-        
+
         });
-        
+
 
 //         axios.delete('/delivery/delete/${id}')
 //         .catch(function(error){
@@ -71,7 +71,7 @@ export default class Home extends Component{
 
     const result = delivery.filter((post)=>
     post.OrderID.toLowerCase().includes(searchkey) ||
-    post.customerName.toLowerCase().includes(searchkey) 
+    post.customerName.toLowerCase().includes(searchkey)
     )
     this.setState({delivery:result})
  }
@@ -83,8 +83,8 @@ export default class Home extends Component{
         if(res.data.success){
             this.filterData(res.data.existingPosts,searchkey)
         }
-           
-    }); 
+
+    });
  }
 
     // onDelete(e) {
@@ -105,13 +105,13 @@ export default class Home extends Component{
             <>
             <IndexNavbar/>
             <IndexHeader />
-            
+
             {/* <div style={{ backgroundImage:
               "url(" + require("assets/img/header1.jpg").default + ")"}} > */}
             <div className="container">
                 <div className="row">
                     <div className="col-lg-9 mt-2 mb-2">
-                       
+
                     </div>
                     <div className="col-lg-3 mt-2 mb-2">
                         <input
@@ -124,7 +124,7 @@ export default class Home extends Component{
                         </input>
                     </div>
                 </div>
-                
+
                 {/* {this.state.delivery.map(delivery=>(
                     <div>
                         <p>{delivery.customerName}</p>
@@ -141,7 +141,7 @@ export default class Home extends Component{
                  */}
 
                 {/* <div class="table-responsive"> */}
-                
+
                     <div>
                     <h5 className=" mb-3 font-normal" style={{fontFamily:"Franklin Gothic Medium", marginTop:"5px", }}> Delivery Details</h5>
                  <table className="table table-hover" style={{ backgroundColor: "rgba(159, 199, 239, 0.4)",width:"100%",boxshadow: "-1px 5px 5px 0px rgba(0, 0, 0, 0.44)" , marginTop:"100px"}} >
@@ -207,10 +207,9 @@ export default class Home extends Component{
             </div>
             </div>
             <DarkFooter/>
-            
-            
+
+
             </>
         );
     }
 }
-
