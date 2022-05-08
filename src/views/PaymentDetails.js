@@ -125,7 +125,7 @@ function PaymentDetails({}) {
     
                           <Row>
                             <Col>
-                              <Link to={{ pathname: "/edit-payment" }}>
+                              <Link to={{ pathname: "/payment-update" }}>
                                 Edit Details
                               </Link>
                             </Col>

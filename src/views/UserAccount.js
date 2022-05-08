@@ -35,7 +35,7 @@ function UserAccount({}) {
     };
     const handleClickBuyHistory = () => {
       history.push({
-        pathname: "/",
+        pathname: "/user-Report",
       });
     };
 

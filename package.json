@@ -9,6 +9,7 @@
     "emailjs-com": "^3.2.0",
     "gulp": "4.0.2",
     "gulp-append-prepend": "1.0.9",
+    "jspdf": "^2.5.1",
     "mdb-react-ui-kit": "^3.0.0",
     "moment": "2.29.1",
     "node-sass": "6.0.0",
