@@ -23,6 +23,7 @@ import UserAccount from "views/UserAccount";
 import UpdateUser from "views/UpdateUser";
 import { ReactSession } from "react-client-session";
 import DeleteAccount from "views/DeleteAccount";
+import PaymentDetails from "views/PaymentDetails";
 function App() {
 
     useEffect(() => {
@@ -80,12 +81,14 @@ function App() {
                 <UpdateUser></UpdateUser>
                 </Route>
 
-                
-
-                <Route path="/test" exact>
-                <test123></test123>
+                <Route
+                path="/payment-details" exact>
+                <PaymentDetails></PaymentDetails>
                 </Route>
 
+
+
+    
 
                 <Route path="/contact-us" exact>
                 <ContactUS></ContactUS>

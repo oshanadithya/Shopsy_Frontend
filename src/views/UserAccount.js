@@ -30,7 +30,7 @@ function UserAccount({}) {
 
     const handleClickPayment = () => {
       history.push({
-        pathname: "/",
+        pathname: "/payment-details",
       });
     };
     const handleClickBuyHistory = () => {
