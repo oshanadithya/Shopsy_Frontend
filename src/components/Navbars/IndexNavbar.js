@@ -178,7 +178,7 @@ function IndexNavbar() {
                   </DropdownItem>
                   <DropdownItem to="/rep" tag={Link}>
                     <i className=""></i>
-                    Monthly Delivery Report
+                  Delivery Report
                   </DropdownItem>
                   <DropdownItem
                     href="./components/Complaints.js"

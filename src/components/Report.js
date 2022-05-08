@@ -1,6 +1,10 @@
 import React, {Component} from "react";
 import axios from 'axios';
 import DarkFooter from "components/Footers/DarkFooter.js";
+
+
+
+
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import IndexHeader from "components/Headers/IndexHeader.js";
 
@@ -37,6 +41,7 @@ export default class Report extends Component{
         const result = delivery.filter((post)=>
         post.customerName.toLowerCase().includes(searchkey) ||
         post.OrderID.toLowerCase().includes(searchkey) 
+        // post.Date.toLowerCase().includes(searchkey) 
         
        
         )
@@ -62,8 +67,9 @@ export default class Report extends Component{
     render(){
         return(
             <>
-            
+           
             <hr></hr>
+           {/* <img src = "src/assets/shopsy.png"></img> */}
             
             <div className="row">
                     <div className="col-lg-9 mt-2 mb-2">
@@ -72,13 +78,25 @@ export default class Report extends Component{
                         <input
                             className="form-control"
                             type="search"
-                            placeholder="Filter by Customer Name and Order ID"
+                            placeholder="Filter by Customer Name or Order ID"
                             name = "searchQuery"
                             onChange={this.handleSearchArea}
                             >
                                 
 
                         </input>
+                        {/* <br></br>
+                        <select
+                        className="form-control"
+                        type="search"
+                        name="searchQuery"
+                        onChange={this.handleSearchArea} >
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+
+                        </select> */}
                     </div>
                 </div><div>
                     <h5 className=" mb-3 font-normal" style={{ fontFamily: "Franklin Gothic Medium", marginTop: "5px" }}> Delivery Report</h5>

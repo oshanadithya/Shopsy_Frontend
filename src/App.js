@@ -1,8 +1,15 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
+import CreateDelivery from "./components/CreateDelivery";
+import DeliveryDetails from "./components/DeliveryDetails";
+import EditDelivery from "./components/EditDelivery";
+import React, {Component} from "react";
+import {BrowserRouter,Route} from 'react-router-dom';
+import Home from './components/Home';
+// import NavBar from './components/NavBar';
+import Complaints from './components/Complaints';
+import AllComplaints from './components/AllComplaints';
+import Report from './components/Report';
+//import Index from './views/Index';
 
-import Index from "views/Index.js";
 
 // styles for this kit
 import "assets/css/bootstrap.min.css";
@@ -10,50 +17,26 @@ import "assets/scss/now-ui-kit.scss?v=1.5.0";
 import "assets/demo/demo.css?v=1.5.0";
 import "assets/demo/nucleo-icons-page-styles.css?v=1.5.0";
 
-// pages for this kit
-import NucleoIcons from "views/NucleoIcons.js";
-import LoginPage from "views/examples/LoginPage.js";
-import LandingPage from "views/examples/LandingPage.js";
-import ProfilePage from "views/examples/ProfilePage.js";
 
-function App() {
+export default class App extends Component{
+    render(){
+        return(
+            <BrowserRouter>
+            
+            <div className="container">
+                {/* <NavBar/> */}
+                {/* <Route path="/index" render={(props) => <Index {...props} />} /> */}
+                <Route path="/" exact component={Home}></Route>
+                <Route path="/add" component={CreateDelivery}></Route>
+                <Route path="/edit/:id" component={EditDelivery}></Route>
+                <Route path="/delivery/:id" component={DeliveryDetails}></Route>
+                <Route path="/addc" component={Complaints}></Route>
+                <Route path="/addcc" component={AllComplaints}></Route>
+                <Route path="/rep" component={Report}></Route>
+              
 
-    /*useEffect(() => {
-        ReactSession.setStoreType("localStorage");
-      }, []);
-
-      const [user, setuser] = useState({});*/
-
-    return (
-        <BrowserRouter>
-            <Switch>
-                <Route path="/index" render={(props) => <Index {...props} />} />
-                <Route
-                path="/nucleo-icons"
-                render={(props) => <NucleoIcons {...props} />}
-                />
-                <Route
-                path="/landing-page"
-                render={(props) => <LandingPage {...props} />}
-                />
-                <Route
-                path="/profile-page"
-                render={(props) => <ProfilePage {...props} />}
-                />
-                <Route
-                path="/login-page"
-                render={(props) => <LoginPage {...props} />}
-                />
-                <Redirect to="/index" />
-                <Redirect from="/" to="/index" />
-
-                //exact
-                <Route path="" exact>
-                    
-                </Route>
-            </Switch>
-        </BrowserRouter>
-    );
+             </div>
+            </BrowserRouter>
+        )
+    }
 }
-
-export default App;
