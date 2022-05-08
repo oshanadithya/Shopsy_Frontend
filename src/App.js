@@ -46,8 +46,6 @@ function App() {
       }, []);
 
       const [user, setuser] = useState({});
-
-function App(){
     return (
         <BrowserRouter>
             <Switch>
