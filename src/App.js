@@ -1,6 +1,14 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
+import CreateDelivery from "./components/CreateDelivery";
+import DeliveryDetails from "./components/DeliveryDetails";
+import EditDelivery from "./components/EditDelivery";
+import React, {Component} from "react";
+import {BrowserRouter,Route} from 'react-router-dom';
+import Home from './components/Home';
+// import NavBar from './components/NavBar';
+import Complaints from './components/Complaints';
+import AllComplaints from './components/AllComplaints';
+import Report from './components/Report';
+//import Index from './views/Index';
 
 import Index from "views/Index.js";
 import { ContactUS } from "views/ContactUs";
@@ -37,21 +45,22 @@ function App() {
     return (
         <BrowserRouter>
             <Switch>
+
                 <Route path="/index" render={(props) => <Index {...props} />} />
                 <Route
                 path="/nucleo-icons"
                 render={(props) => <NucleoIcons {...props} />}
                 />
+
                 <Route
                 path="/landing-page"
                 render={(props) => <LandingPage {...props} />}
                 />
-                
+
                 <Route
                 path="/account-managment"
                 render={(props) => <UserAccount {...props} />}
                 />
-                
 
                 <Route
                 path="/sell-product"
@@ -62,7 +71,7 @@ function App() {
                 <Cart></Cart>
                 </Route>
 
-                
+
                 <Route path="/signup" exact>
                 <Signup></Signup>
                 </Route>
@@ -70,8 +79,6 @@ function App() {
                 <Route path="/delete-account" exact>
                 <DeleteAccount></DeleteAccount>
                 </Route>
-
-                
 
                 <Route
                 path="/login" exact>
@@ -98,10 +105,6 @@ function App() {
                 <BuyHistory user={user}></BuyHistory>
                 </Route>
 
-
-
-    
-
                 <Route path="/contact-us" exact>
                 <ContactUS></ContactUS>
                 </Route>
@@ -110,10 +113,28 @@ function App() {
                 <UpdateProduct></UpdateProduct>
                 </Route>
 
+                <Route path="/" exact>
+                </Route>
+
+                <Route path="/add" exact>
+
+                </Route>
+
+
+
                 <Redirect to="/index" />
                 <Redirect from="/" to="/index" />
 
             </Switch>
+
+                <Route path="/" exact component={Home}></Route>
+                <Route path="/add" component={CreateDelivery}></Route>
+                <Route path="/edit/:id" component={EditDelivery}></Route>
+                <Route path="/delivery/:id" component={DeliveryDetails}></Route>
+                <Route path="/addc" component={Complaints}></Route>
+                <Route path="/addcc" component={AllComplaints}></Route>
+                <Route path="/rep" component={Report}></Route>
+
         </BrowserRouter>
     );
 }

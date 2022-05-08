@@ -40,7 +40,7 @@ import { ContactUS } from "./ContactUs.js";
 import { Cart } from "./Cart.js";
 import { Sellproduct } from "./SellProduct.js";
 import LoginPage from "./examples/LoginPage.js";
- 
+
 function Index() {
 
   const [products, setProducts] = useState([]);

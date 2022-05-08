@@ -158,6 +158,98 @@ function IndexNavbar() {
                 >
                   <i className=""></i>
                   <p>All Categories</p>
+                  <p>Companies</p>
+                </DropdownToggle>
+                <DropdownMenu>
+                  <DropdownItem to="/index" tag={Link}>
+                    <i className=""></i>
+                    Malibun
+                  </DropdownItem>
+                  <DropdownItem
+                    href="https://"
+                    target="_blank"
+                  >
+                    <i className=""></i>
+                    Softlogic
+                  </DropdownItem>
+                  <DropdownItem
+                    href="https://"
+                    target="_blank"
+                  >
+                    <i className=""></i>
+                    Abans
+                  </DropdownItem>
+                  <DropdownItem
+                    href="https://"
+                    target="_blank"
+                  >
+                    <i className=""></i>
+                    Singer
+                  </DropdownItem>
+                  <DropdownItem
+                    href="https://"
+                    target="_blank"
+                  >
+                    <i className=""></i>
+                    CBL
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+
+              <UncontrolledDropdown nav>
+                <DropdownToggle
+                  caret
+                  color="default"
+                  href="#pablo"
+                  nav
+                  onClick={(e) => e.preventDefault()}
+                >
+                  <i className=""></i>
+                  <p>Deliveries</p>
+                </DropdownToggle>
+                <DropdownMenu>
+                  <DropdownItem to="/" tag={Link}>
+                    <i className=""></i>
+                    Delivery Details
+                  </DropdownItem>
+                  <DropdownItem
+                    href="./components/DeliveryDetails.js"
+                    target="_blank"
+                  >
+                    <i className=""></i>
+                   Add New Delivery Details
+                  </DropdownItem>
+                  <DropdownItem
+                    href="./components/CreateDelivery.js"
+                    target="_blank"
+                  >
+                    <i className=""></i>
+
+                  </DropdownItem>
+                  <DropdownItem to="/rep" tag={Link}>
+                    <i className=""></i>
+                  Delivery Report
+                  </DropdownItem>
+                  <DropdownItem
+                    href="./components/Complaints.js"
+                    target="_blank"
+                  >
+
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+
+
+              <UncontrolledDropdown nav>
+                <DropdownToggle
+                  caret
+                  color="default"
+                  href="#pablo"
+                  nav
+                  onClick={(e) => e.preventDefault()}
+                >
+                  <i className=""></i>
+                  <p>Products</p>
                 </DropdownToggle>
                 <DropdownMenu>
                   <DropdownItem to="/index" tag={Link}>
@@ -188,9 +280,54 @@ function IndexNavbar() {
                 </DropdownMenu>
               </UncontrolledDropdown>
 
-              
+              <UncontrolledDropdown nav>
+                <DropdownToggle
+                  caret
+                  color="default"
+                  href="#pablo"
+                  nav
+                  onClick={(e) => e.preventDefault()}
+                >
+                  <i className=""></i>
+                  <p>Customer Complaints</p>
+                </DropdownToggle>
+                <DropdownMenu>
+                  <DropdownItem to="/addc" tag={Link}>
+                    <i className=""></i>
+                    Customer Complaints
+                  </DropdownItem>
+                  <DropdownItem
+                    href="./components/Complaints.js"
+                    target="_blank"
 
-              
+                  >
+                    <i className=""></i>
+
+                  </DropdownItem>
+
+
+
+
+                  <DropdownItem to="/addcc" tag={Link}>
+                    <i className=""></i>
+                    All Complaints
+                  </DropdownItem>
+                  <DropdownItem
+                    href="./components/AllComplaints.js"
+                    target="_blank"
+
+                  >
+                    <i className=""></i>
+
+                  </DropdownItem>
+
+                </DropdownMenu>
+
+              </UncontrolledDropdown>
+
+
+
+
               <NavItem>
                 <NavLink
                   href="https://twitter.com/CreativeTim?ref=creativetim"
