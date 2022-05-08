@@ -6,6 +6,8 @@ import {
   Label,
   Input,
   form,
+  Button,
+
   FormGroup,
   Row,
   Col,
@@ -28,7 +30,7 @@ import { ReactSession } from "react-client-session";
 
 toast.configure();
 
-function updateUser() {
+function UpdateUser() {
 
     const [FirstName , setFirstName] = useState("");
     const [LastName , setLastName] = useState("");
@@ -40,7 +42,7 @@ function updateUser() {
     const history = useHistory();
 
 
-    function onSubmit(e) {
+    function OnUpdate(e) {
         e.preventDefault();
         const updates = {
             FirstName,
@@ -48,11 +50,12 @@ function updateUser() {
             BirthDay,
             PhoneNo,
             Gender,
+            Password
            
 
         }
 
-        axios.put( `http://localhost:8070/users/update/${ReactSession.get("user").Email}`, updates)
+        axios.put( `http://localhost:8070/users/update-user/${ReactSession.get("user").Email}`, updates)
         .then(() => {
             toast.success('User Details Edited!', {
                 position: "bottom-right",
@@ -87,6 +90,7 @@ function updateUser() {
                setBirthDay(ReactSession.get("user").BirthDay);
                setPhoneNo(ReactSession.get("user").PhoneNo);
                setGender(ReactSession.get("user").Gender);
+               setPassword(ReactSession.get("user").Password);
                
            };
        }, []);
@@ -105,7 +109,7 @@ function updateUser() {
             <div style = {{paddingTop : "50px"}} className = {styles.body}>
             <br/><br/><br/><br/>
             <div className = {styles.FormContainer}>
-            <form onSubmit = {sendData}>
+            <form onSubmit = {OnUpdate}>
 
                 <Label for = "firstName">First Name</Label><br/>
                 <Input type = 'text' name = "firstName" placeholder = "Enter First Name"  value={FirstName}
@@ -121,7 +125,7 @@ function updateUser() {
                 }}></Input><br/>
 
                 <Label for = "BirthDay">Date Of Birth</Label><br/>
-                <Input type = 'date' name = "BirthDay" placeholder = "Enter Your Birthday" value={Birthday}
+                <Input type = 'text' name = "BirthDay" placeholder = "dd/mm/yyyy" value={BirthDay}
                      required
                 onChange = {(e)=>{
                   setBirthDay(e.target.value);
@@ -141,8 +145,14 @@ function updateUser() {
                   setGender(e.target.value);
                 }}></Input><br/>
 
+                <Label for = "PassWord">PassWord</Label><br/> 
+                <Input type = "password" name = "PassWord" placeholder = "Enter New Password" value={Password}  required
+                onChange = {(e)=>{
+                  setPassword(e.target.value);
+                }}></Input><br/>
+
             
-                <span style = {{textAlign:"left" , color : "red"}}>{message}</span>
+              
                 <Button color = "primary" type = "submit" style = {{float:'center' , margin : "5px" }}
                 
                 >Update Details</Button>
@@ -156,4 +166,4 @@ function updateUser() {
     );
 
 }
-export default updateUser;
+export default UpdateUser;

@@ -27,6 +27,10 @@ function Signup() {
     const [Email , setEmail] = useState("");
     const [Gender , setGender] = useState("");
     const [Password , setPassword] = useState("");
+    const [CardType , setCardType] = useState("");
+    const [CardNumber , setCardNumber] = useState("");
+    const [CardExpDate , setCardExpDate] = useState("");
+    const [CardCVC , setCardCVC] = useState("");
     const [message , setMessage] = useState("");
     const [usernameError , setError] = useState("");
 
@@ -54,7 +58,11 @@ function sendData(e){
           PhoneNo,
           Email,
           Gender,
-          Password
+          Password,
+          CardType,
+          CardNumber,
+          CardExpDate,
+          CardCVC
           
           }
           axios.post("http://localhost:8070/users/add", newUser).then(()=>{
@@ -75,15 +83,8 @@ function sendData(e){
   return (
     <>
       <ExamplesNavbar />
-      <div className="page-header clear-filter" filter-color="blue">
-        <div
-          className="page-header-image"
-          style={{
-            backgroundImage:
-              "url(" + require("assets/img/login_bg.jpg").default + ")",
-          }}
-        ></div>
-
+      
+     
 
                   <div style = {{paddingTop : "50px"}} className = {styles.body}>
             <br/><br/><h3 className = {styles.header} style = {{textAlign : 'center'}}>Create Account</h3><br/><br/>
@@ -104,7 +105,7 @@ function sendData(e){
                 }}></Input><br/>
 
                 <Label for = "BirthDay">Date Of Birth</Label><br/>
-                <Input type = 'date' name = "BirthDay" placeholder = "Enter Your Birthday"
+                <Input type = 'text' name = "BirthDay" placeholder = "dd/mm/yyyy"
                      required
                 onChange = {(e)=>{
                   setBirthDay(e.target.value);
@@ -131,13 +132,40 @@ function sendData(e){
                   setGender(e.target.value);
                 }}></Input><br/>
 
+                <Label for = "CardType">Card Type</Label><br/>
+                <Input type = 'text' name = "CardType" placeholder = "Select the card Type" 
+                 required
+                onChange = {(e)=>{
+                  setCardType(e.target.value);
+                }}></Input><br/>
+
+                <Label for = "CardNumber">Card No</Label><br/>
+                <Input type = 'text' name = "CardNumber" placeholder = "Enter The Card Number" pattern = "[0-9]{16}"
+                title = "Enter 16 digit number" required
+                onChange = {(e)=>{
+                  setCardNumber(e.target.value);
+                }}></Input><br/>
+
+                <Label for = "CardExpDate">Card Expire Date</Label><br/>
+                <Input type = 'text' name = "CardExpDate" placeholder = "mm/yy"
+                 required
+                onChange = {(e)=>{
+                  setCardExpDate(e.target.value);
+                }}></Input><br/>
+
+                <Label for = "CardCVC">CVC</Label><br/>
+                <Input type = 'text' name = "CardCVC" placeholder = "Enter The CVC" pattern = "\d{3}|\d{4}"
+                title = "Enter a 3 digit number or a 4 digit number" required
+                onChange = {(e)=>{
+                  setCardCVC(e.target.value);
+                }}></Input><br/>
+
                 <Label for = "Password">Password</Label><br/> 
                 <Input type = "password" name = "Password" placeholder = "Enter The Password"   required
                 onChange = {(e)=>{
                   setPassword(e.target.value);
                 }}></Input><br/>
 
-          
 
                 <span style = {{textAlign:"left" , color : "red"}}>{message}</span>
                 <Button color = "primary" type = "submit" style = {{float:'center' , margin : "5px" }}
@@ -153,9 +181,9 @@ function sendData(e){
 
             </form>    
             </div>
-        </div>   
+        </div> <br></br> <br></br> 
         <TransparentFooter />
-      </div>
+     
     </>
   );
 }

@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import { ReactSession } from "react-client-session";
 import { useState, useEffect } from "react";
 import { useHistory, useLocation } from "react-router-dom";
+import { Button } from "react-bootstrap";
+import { ButtonGroup } from "react-bootstrap";
+import { toast } from "react-toastify";
 import axios from 'axios';
 
 // reactstrap components
@@ -24,6 +27,18 @@ import DefaultFooter from "components/Footers/DefaultFooter.js";
 function UserAccount({}) {
 
     let history = useHistory();
+
+    const handleClickPayment = () => {
+      history.push({
+        pathname: "/",
+      });
+    };
+    const handleClickBuyHistory = () => {
+      history.push({
+        pathname: "/",
+      });
+    };
+
     const [user, setuser] = useState();
     const [FirstName , setFirstName] = useState("");
     const [LastName , setLastName] = useState("");
@@ -31,6 +46,8 @@ function UserAccount({}) {
     const [PhoneNo , setPhoneNo] = useState("");
     const [Email , setEmail] = useState("");
     const [Gender , setGender] = useState("");
+
+    
     
     useEffect(()=>{
 
@@ -46,6 +63,8 @@ function UserAccount({}) {
           pathname: "/login",
         });
       }
+
+      
 
       else {
 
@@ -63,6 +82,8 @@ function UserAccount({}) {
       document.body.classList.remove("sidebar-collapse");
     };
   }, []);
+
+  
   return (
     <>
       <ExamplesNavbar />
@@ -82,12 +103,13 @@ function UserAccount({}) {
                         height: "300px",
                       }}
                     >
-                      <Card
-                        className="profile-card-blue"
-                        id="profile-card-blue"
-                      >
-                    
-                      </Card>
+                      <ButtonGroup vertical>
+                          <Button variant="outline-primary" onClick = {handleClickPayment}>Payment Details</Button>
+                          <Button variant="outline-primary" onClick = {handleClickBuyHistory} >Buy History</Button>
+                      
+                       </ButtonGroup>
+                          
+                     
                     </td>
                     <td style={{ paddingLeft: "20px" }}>
                     <Row>
@@ -128,18 +150,29 @@ function UserAccount({}) {
                           </Link>
                         </Col>
                       </Row>
-                      <br></br>
-                      <br></br>
                       <Row>
                         <Col>
-                          <Link to={{ pathname: "/unregister" }}>
-                            Unregsiter
+                          <Link to={{ pathname: "/delete-account" }}>
+                            Delete Account
                           </Link>
                         </Col>
                       </Row>
+                      <br></br>
+                      <br></br>
                     </td>
                   </tr>
                 </table>
+
+                <div style = {{paddingTop : "50px"}} className = {styles.btn_group}>
+            
+                
+            
+        
+               
+            
+            </div>
+
+              
               </Card>
             </div>
 

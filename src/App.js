@@ -18,11 +18,11 @@ import LoginPage from "views/examples/LoginPage.js";
 import LandingPage from "views/examples/LandingPage.js";
 import { UpdateProduct } from "views/UpdateProduct";
 
-import Userdashboard from "views/examples/Userdashboard.js";
 import Signup from "views/Signup";
 import UserAccount from "views/UserAccount";
-import Edituserform from "views/Edituserform";
+import UpdateUser from "views/UpdateUser";
 import { ReactSession } from "react-client-session";
+import DeleteAccount from "views/DeleteAccount";
 function App() {
 
     useEffect(() => {
@@ -43,18 +43,12 @@ function App() {
                 path="/landing-page"
                 render={(props) => <LandingPage {...props} />}
                 />
-                <Route
-                path="/user-dashboard"
-                render={(props) => <Userdashboard {...props} />}
-                />
+                
                 <Route
                 path="/account-managment"
                 render={(props) => <UserAccount {...props} />}
                 />
-                <Route
-                path="/edit-details"
-                render={(props) => <Edituserform {...props} />}
-                />
+                
 
                 <Route
                 path="/sell-product"
@@ -65,9 +59,16 @@ function App() {
                 <Cart></Cart>
                 </Route>
 
+                
                 <Route path="/signup" exact>
                 <Signup></Signup>
                 </Route>
+
+                <Route path="/delete-account" exact>
+                <DeleteAccount></DeleteAccount>
+                </Route>
+
+                
 
                 <Route
                 path="/login" exact>
@@ -76,7 +77,7 @@ function App() {
 
                 <Route
                 path="/edit-user" exact>
-                <Edituserform></Edituserform>
+                <UpdateUser></UpdateUser>
                 </Route>
 
                 
