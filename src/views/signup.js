@@ -146,7 +146,7 @@ function sendData(e){
 
                 <label color="black">
                 Already have an account?{" "}
-                <a href="/login-page">
+                <a href="/login">
                   <strong>Sign IN</strong>
                 </a>
               </label>

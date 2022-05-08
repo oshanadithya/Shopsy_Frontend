@@ -28,7 +28,7 @@ function Userdashboard() {
 
   const userAccountManagment = () => {
     history.push({
-      pathname: "/my-tours",
+      pathname: "/account-managment",
     });
   };
   const handleClickBuyHistory = () => {

@@ -6,7 +6,6 @@ import Index from "views/Index.js";
 import { ContactUS } from "views/ContactUs";
 import { Cart } from "views/Cart";
 import { Sellproduct } from "views/SellProduct";
-
 // styles for this kit
 import "assets/css/bootstrap.min.css";
 import "assets/scss/now-ui-kit.scss?v=1.5.0";
@@ -17,12 +16,10 @@ import "assets/demo/nucleo-icons-page-styles.css?v=1.5.0";
 import NucleoIcons from "views/NucleoIcons.js";
 import LoginPage from "views/examples/LoginPage.js";
 import LandingPage from "views/examples/LandingPage.js";
-import ProfilePage from "views/examples/ProfilePage.js";
 import { UpdateProduct } from "views/UpdateProduct";
 
-import LandingPage from "views/examples/LandingPage.js";
 import Userdashboard from "views/examples/Userdashboard.js";
-import SignUp from "views/Signup.js";
+import Signup from "views/Signup";
 import UserAccount from "views/UserAccount";
 import Edituserform from "views/Edituserform";
 import { ReactSession } from "react-client-session";
@@ -60,25 +57,34 @@ function App() {
                 />
 
                 <Route
-                path="/signup"
-                render={(props) => <SignUp {...props} />}
+                path="/sell-product"
+                render={(props) => <Sellproduct {...props} />}
                 />
-
-                <Route
-                path="/login"
-                render={(props) => <loginPage user={user} setuser={setuser} {...props} />}
-                />
-
-                <Redirect to="/index" />
-                <Redirect from="/" to="/index" />
 
                 <Route path="/cart" exact>
                 <Cart></Cart>
                 </Route>
 
-                <Route path="/sell-product" exact>
-                <Sellproduct></Sellproduct>
+                <Route path="/signup" exact>
+                <Signup></Signup>
                 </Route>
+
+                <Route
+                path="/login" exact>
+                <LoginPage user={user} setuser={setuser}></LoginPage>
+                </Route>
+
+                <Route
+                path="/edit-user" exact>
+                <Edituserform></Edituserform>
+                </Route>
+
+                
+
+                <Route path="/test" exact>
+                <test123></test123>
+                </Route>
+
 
                 <Route path="/contact-us" exact>
                 <ContactUS></ContactUS>
@@ -87,6 +93,10 @@ function App() {
                 <Route path="/update-product/:id" exact>
                 <UpdateProduct></UpdateProduct>
                 </Route>
+
+                <Redirect to="/index" />
+                <Redirect from="/" to="/index" />
+
             </Switch>
         </BrowserRouter>
     );

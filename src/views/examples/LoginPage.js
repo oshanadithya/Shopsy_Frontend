@@ -25,7 +25,7 @@ import {
 import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
 import TransparentFooter from "components/Footers/TransparentFooter.js";
 
-function LoginPage({ User, setuser }) {
+function LoginPage({ user, setuser }) {
 
   const history = useHistory();
   const [Email, setEmail] = useState("");
@@ -38,7 +38,7 @@ function LoginPage({ User, setuser }) {
     axios.get(`http://localhost:8070/users/check/${Email}`).then((res) => {
       if (res.data === true) {
         axios.get(`http://localhost:8070/users/get/${Email}`).then((res) => {
-          if (Password != res.data.password) {
+          if (Password != res.data.Password) {
             setmessage("Incorrect password!");
             setAlertDanger(true);
           } else {
@@ -50,7 +50,7 @@ function LoginPage({ User, setuser }) {
           }
         });
       } else {
-        setmessage("Please check your username");
+        setmessage("Please check your email");
         setAlertDanger(true);
       }
     });
@@ -58,7 +58,7 @@ function LoginPage({ User, setuser }) {
 
   const dashboard = () => {
     history.push({
-      pathname: "/user-dashboard",
+      pathname: "/account-managment",
     });
   };
 
@@ -182,7 +182,7 @@ function LoginPage({ User, setuser }) {
                     <div className="pull-center">
                     <label color="black">
                        Don't have an account?{" "}
-                         <a href="/signup-page">
+                         <a href="/signup">
                           <strong>Create an account</strong>
                 </a>
               </label>

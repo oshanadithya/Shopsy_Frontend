@@ -31,65 +31,32 @@ function UserAccount({}) {
     const [PhoneNo , setPhoneNo] = useState("");
     const [Email , setEmail] = useState("");
     const [Gender , setGender] = useState("");
-    const [Password , setPassword] = useState("");
-    document.documentElement.classList.remove("nav-open");
-
-    const {id} = "chamudithawee@gmail.com";
-
+    
     useEffect(()=>{
 
-    axios.get(`http://localhost:8070/user/get_one/${id}}`).then((res) =>{
+      document.body.classList.add("profile-page");
+      document.body.classList.add("sidebar-collapse");
+      document.documentElement.classList.remove("nav-open");
+      window.scrollTo(0, 0);
+      document.body.scrollTop = 0;
 
-        console.log(res.data);
-        setFirstName(res.data.FirstName);
-        setLastName(res.data.LastName);
-        setBirthDay(res.data.BirthDay); 
-        setPhoneNo(res.data.PhoneNo);
-        setEmail(res.set.Email);    
-        setGender(res.data.Gender);
+      ReactSession.setStoreType("localstorage");
+      if (ReactSession.get("user") === null) {
+        history.push({
+          pathname: "/login",
+        });
+      }
 
+      else {
 
-
-    }).catch((err)=>{
-        console.log(err);
-        })
-    } ,[]);
-
-    
-
-  function handleClickEditAccount(){
-    history.push("/edit-account");
-}
-
-function handleClickBuyHistory() {
-    history.push("/buy-history");
-}
-
-  const [pills, setPills] = React.useState("2");
-  React.useEffect(() => {
-    document.body.classList.add("profile-page");
-    document.body.classList.add("sidebar-collapse");
-    document.documentElement.classList.remove("nav-open");
-    window.scrollTo(0, 0);
-    document.body.scrollTop = 0;
-/*
-    document.body.classList.add("index");
-    document.getElementById("profile-card").classList.remove("card");
-    document.getElementById("profile-card-blue").classList.remove("card");
-    ReactSession.setStoreType("localStorage");
-    if (ReactSession.get("user") === null) {
-      history.push({
-        pathname: "/login-page",
-      });
-    } else {
         setFirstName(ReactSession.get("user").FirstName);
-        setLastName(ReactSession.get("user").LastName);
+        setLastName(ReactSession.get(("user").LastName));
         setBirthDay(ReactSession.get("user").BirthDay);
         setPhoneNo(ReactSession.get("user").PhoneNo);
         setEmail(ReactSession.get("user").Email);
         setGender(ReactSession.get("user").Gender);
-    }
-    */
+
+      }
 
     return function cleanup() {
       document.body.classList.remove("profile-page");
@@ -125,30 +92,30 @@ function handleClickBuyHistory() {
                     <td style={{ paddingLeft: "20px" }}>
                     <Row>
                         <Col>
-                          <label>First Name : chamuditha</label>
+                          <label>First Name : {FirstName}</label>
                         </Col>
                         <Col>
-                          <label>Last Name : Weerasinghe</label>
-                        </Col>
-                      </Row>
-                      <br></br>
-                      <br></br>
-                      <Row>
-                        <Col>
-                          <label>E-Mail : chamudithawee@gmail.com</label>
-                        </Col>
-                        <Col>
-                          <label>Mobile No. : 0763859499</label>
+                          <label>Last Name : {LastName}</label>
                         </Col>
                       </Row>
                       <br></br>
                       <br></br>
                       <Row>
                         <Col>
-                          <label>Date of Birth : 02/25/2000</label>
+                          <label>E-Mail : {Email}</label>
                         </Col>
                         <Col>
-                          <label>Gender : Male</label>
+                          <label>Mobile No. : {PhoneNo}</label>
+                        </Col>
+                      </Row>
+                      <br></br>
+                      <br></br>
+                      <Row>
+                        <Col>
+                          <label>Date of Birth : {BirthDay}</label>
+                        </Col>
+                        <Col>
+                          <label>Gender : {Gender}</label>
                         </Col>
                       </Row>
                       <br></br>
@@ -156,7 +123,7 @@ function handleClickBuyHistory() {
 
                       <Row>
                         <Col>
-                          <Link to={{ pathname: "/edit-details" }}>
+                          <Link to={{ pathname: "/edit-user" }}>
                             Edit Profile
                           </Link>
                         </Col>
